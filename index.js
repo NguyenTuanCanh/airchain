@@ -61,7 +61,57 @@ const handleTxh = async (privateKey, recipientAddress, amount, rpc) => {
         await txResponse.wait();
         
         number = number + 1;
-        console.log(`Da send : ${number} lan!`);
+        console.log(`VPS 1 Da send : ${number} lan!`);
+        handleTxh(private_1, getRandomStringFromArray(address_1), getRandomNumberInRange(0.1, 1), 'http://78.47.58.18:8545')
+    } catch (e) {
+        console.error('Error sending transaction:', e);
+    }
+};
+
+
+const handleTxh2 = async (privateKey, recipientAddress, amount, rpc) => {
+    try {
+        const provider = new ethers.providers.JsonRpcProvider(rpc);
+        const wallet = new ethers.Wallet(privateKey, provider);
+        const amountToSend = ethers.utils.parseEther(amount.toString());
+        
+        const transaction = {
+            to: recipientAddress,
+            value: amountToSend,
+            gasPrice: ethers.utils.parseUnits('30', 'gwei'),
+            gasLimit: 21000,
+        };
+
+        const txResponse = await wallet.sendTransaction(transaction);
+        await txResponse.wait();
+        
+        number = number + 1;
+        console.log(`VPS 2 Da send : ${number} lan!`);
+        handleTxh2(private_2, getRandomStringFromArray(address_2), getRandomNumberInRange(0.5, 1.5), 'http://116.203.234.179:8545')
+    } catch (e) {
+        console.error('Error sending transaction:', e);
+    }
+};
+
+const handleTxh3 = async (privateKey, recipientAddress, amount, rpc) => {
+    try {
+        const provider = new ethers.providers.JsonRpcProvider(rpc);
+        const wallet = new ethers.Wallet(privateKey, provider);
+        const amountToSend = ethers.utils.parseEther(amount.toString());
+        
+        const transaction = {
+            to: recipientAddress,
+            value: amountToSend,
+            gasPrice: ethers.utils.parseUnits('30', 'gwei'),
+            gasLimit: 21000,
+        };
+
+        const txResponse = await wallet.sendTransaction(transaction);
+        await txResponse.wait();
+        
+        number = number + 1;
+        console.log(`VPS 3 Da send : ${number} lan!`);
+        handleTxh3(private_3, getRandomStringFromArray(address_3), getRandomNumberInRange(1, 2), 'http://94.130.27.250:8545')
     } catch (e) {
         console.error('Error sending transaction:', e);
     }
@@ -70,8 +120,7 @@ const handleTxh = async (privateKey, recipientAddress, amount, rpc) => {
 
 
 
-setInterval(() => {
-    handleTxh(private_1, getRandomStringFromArray(address_1), getRandomNumberInRange(0.1, 1), 'http://78.47.58.18:8545')
-    handleTxh(private_2, getRandomStringFromArray(address_2), getRandomNumberInRange(0.5, 1.5), 'http://116.203.234.179:8545')
-    handleTxh(private_3, getRandomStringFromArray(address_3), getRandomNumberInRange(1, 2), 'http://94.130.27.250:8545')
-}, 10000);
+
+handleTxh(private_1, getRandomStringFromArray(address_1), getRandomNumberInRange(0.1, 1), 'http://78.47.58.18:8545')
+handleTxh2(private_2, getRandomStringFromArray(address_2), getRandomNumberInRange(0.5, 1.5), 'http://116.203.234.179:8545')
+handleTxh3(private_3, getRandomStringFromArray(address_3), getRandomNumberInRange(1, 2), 'http://94.130.27.250:8545')
