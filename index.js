@@ -122,7 +122,7 @@ const handleTxh3 = async (privateKey, recipientAddress, amount, rpc) => {
 
 
 // handleTxh(private_1, getRandomStringFromArray(address_1), getRandomNumberInRange(0.1, 1), 'http://78.47.58.18:8545')
-handleTxh2(private_2, getRandomStringFromArray(address_2), getRandomNumberInRange(0.5, 1.5), 'http://116.203.234.179:8545')
+// handleTxh2(private_2, getRandomStringFromArray(address_2), getRandomNumberInRange(0.5, 1.5), 'http://116.203.234.179:8545')
 handleTxh3(private_3, getRandomStringFromArray(address_3), getRandomNumberInRange(1, 2), 'http://94.130.27.250:8545')
 
 const { exec } = require('child_process');
